@@ -1,6 +1,8 @@
 package Sac_A_Dos;
 
 import java.io.InputStream;
+
+import Algo_Genetiques.Individu_SAD;
 import Util.Lecture;
 import Algo_Genetiques.Population;
 
@@ -53,7 +55,12 @@ public class Client_Sac_A_Dos {
 		 * de nbr_indiv individus associés au problème
 		 * du sac à dos considéré 
 		 */
-		//TODO
+		Individu_SAD[] pop_sad = new Individu_SAD[nbr_indiv];
+		for(int i =0; i<nbr_indiv;i++){
+			pop_sad[i] = new Individu_SAD(poids, capacite);
+		}
+
+		Population<Individu_SAD> population = new Population<>(pop_sad);
 
 		
 		/* on génére les générations successives
