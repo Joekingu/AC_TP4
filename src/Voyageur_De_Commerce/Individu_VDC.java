@@ -2,6 +2,9 @@ package Voyageur_De_Commerce;
 
 import Algo_Genetiques.Individu;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class Individu_VDC implements Individu {
 
     private int[] parcours;
@@ -167,7 +170,7 @@ public class Individu_VDC implements Individu {
 
     // FONCTION SUPPLEMENTAIRE POUR CROISEMENT
     public void calcule_adaptation() {
-        int adapt = 0;
+        int adapt = 1;
         for (int i = 0; i < parcours.length; i++) {
             int ville_actu = parcours[i];
             int ville_prec = parcours[(i + 1) % parcours.length];
