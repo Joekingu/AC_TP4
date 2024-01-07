@@ -62,14 +62,21 @@ public class Client_Sac_A_Dos {
 
 		Population<Individu_SAD> population = new Population<>(pop_sad);
 
-		
+		int nbriteration = 100;
 		/* on génére les générations successives
 		 * en faisant se reproduire la population
 		 * et on affiche l'adaptation moyenne et maximale de chaque génération
 		 * on s'arrête si on a atteint la capacité ou si on fait un nombre donné (paramètre) d'itérations
 		 * le résultat est alors donné par l'individu maximal de la dernière génération
 		 */
-		//TODO
+		int generation = 1;
+		double maxadapt = population.adaptation_maximale();
+		while(generation<=nbriteration && maxadapt< capacite){
+			population.reproduction(prob_mut);
+			maxadapt = population.adaptation_maximale();
+			System.out.println("Génération "+generation+", adaptation moyenne: "+population.adaptation_moyenne()+", adaptation maximale : "+ maxadapt);
+			generation++;
+		}
 
 	}
 }

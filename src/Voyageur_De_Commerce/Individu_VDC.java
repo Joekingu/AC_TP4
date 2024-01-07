@@ -1,6 +1,7 @@
 package Voyageur_De_Commerce;
 
 import Algo_Genetiques.Individu;
+import java.util.*;
 
 public class Individu_VDC implements Individu {
 
@@ -167,13 +168,18 @@ public class Individu_VDC implements Individu {
 
     // FONCTION SUPPLEMENTAIRE POUR CROISEMENT
     public void calcule_adaptation() {
-        int adapt = 0;
+        double adapt = 0;
         for (int i = 0; i < parcours.length; i++) {
             int ville_actu = parcours[i];
             int ville_prec = parcours[(i + 1) % parcours.length];
             adapt += calculateDistance(ville_actu, ville_prec);
         }
-        adapt = 1 / adapt;
+        if (adapt != 0) {
+            // Use floating-point division
+            adapt = 1.0 / adapt;
+        } else {
+            adapt = 0;
+        }
     }
 
     public void optim_2opt() {
