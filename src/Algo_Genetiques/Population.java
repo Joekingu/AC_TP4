@@ -74,6 +74,7 @@ public class Population<Indiv extends Individu> {
 		// on applique une éventuelle mutation à toute la nouvelle génération
 		new_generation.forEach(indiv -> indiv.mutation(prob_mut));
 
+		new_generation.remove(new_generation.size()-1);
 		/* élitisme */
 		new_generation.add(individu_maximal());
 
